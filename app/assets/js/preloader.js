@@ -14,11 +14,11 @@ logger.log('Loading..')
 ConfigManager.load()
 
 // Load Strings
-LangLoader.loadLanguage('en_US')
+LangLoader.loadLanguage('fr_FR')
 
 function onDistroLoad(data){
     if(data != null){
-        
+
         // Resolve the selected server if its value has yet to be set.
         if(ConfigManager.getSelectedServer() == null || data.getServer(ConfigManager.getSelectedServer()) == null){
             logger.log('Determining default selected server..')
@@ -59,7 +59,7 @@ DistroManager.pullRemote().then((data) => {
 
 })
 
-// Clean up temp dir incase previous launches ended unexpectedly. 
+// Clean up temp dir incase previous launches ended unexpectedly.
 fs.remove(path.join(os.tmpdir(), ConfigManager.getTempNativeFolder()), (err) => {
     if(err){
         logger.warn('Error while cleaning natives directory', err)
